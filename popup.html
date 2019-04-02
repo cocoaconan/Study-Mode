@@ -6,13 +6,108 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Study Mode</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" type="text/css">
+        
+        <style>
+            html, body {
+                font-family: 'Open Sans', sans-serif;
+                font-size: 14px;
+                margin: 0;
+                min-height: 180px;
+                padding: 0;
+                width: 384px;
+            }   
+       
+                h1 {
+                    font-family: 'Menlo', monospace;
+                    font-size: 22px;
+                    font-weight: 400;
+                    margin: 0;
+                    color: #222222;
+                }
+       
+                a:link, a:visited {
+                    color: black;
+                    outline: 0;
+                    text-decoration: none;
+                }
+       
+                img {
+                    width: 30px;
+                }
+       
+                .modal-header {
+                    align-items: center;
+                    border-bottom: 0.5px solid #dadada;
+                }
+                .modal-content {
+                    padding: 0 22px;
+                }
+       
+                .modal icons {
+                    border-top: 0.5px solid #dadada;
+                    height: 50px;
+                    width: 100%;
+                }
+       
+                .logo {
+                    padding: 16px;
+                }
+       
+                .logo-icon {
+                    vertical-align: text-bottom;
+                    margin-right: 12px;
+                }
+       
+                .version {
+                    color: #444;
+                    font-size: 18px;
+                }
+       
+                .flex-container {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 10px 22px;
+                }
+       
+                .flex {
+                    opacity: 1;
+                    transition: opacity 0.2s ease-in-out;
+                    width: 120px;
+                }
+       
+                .flex:hover {
+                    opacity: 0.4;
+                }
+       
+                .flex.fa {
+                    font-size: 40px;
+                    color: #666666;
+                }
+                </style>
+        
         <body>
             <h1>Study Mode
                 <small>Time to Study.</small>
             </h1>
             <div class=menu>
-                
+                <a href=# tabindex=-1 id=options>Options</a> &nbsp;
+                <a href=# tabindex=-1 id=stats>Stats</a> &nbsp;
+                <a href=# tabindex=-1 id=close>&#x2716;</a>
             </div>
+            <div class=content>
+                <div class="option contents">
+                    <div id=inactive-time></div>
+                    <div class=wrapper>
+                        <div class=other>
+                            <a href=# tabindex=-1 class="export_as_cvs_button">Export as CSV</a>
+                            <a href=# tabindex=-1 class="button with-loader options-restore">
+                                <span class=text data-default=Restore data-warning="Corrupted data!" data-restored="Data restored!">Restore</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
         </body>
         
 
