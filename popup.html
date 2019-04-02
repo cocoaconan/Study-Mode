@@ -89,21 +89,50 @@
             <h1>Study Mode
                 <small>Time to Study.</small>
             </h1>
+            <!--Options and Stats tabs in the main page-->
             <div class=menu>
                 <a href=# tabindex=-1 id=options>Options</a> &nbsp;
                 <a href=# tabindex=-1 id=stats>Stats</a> &nbsp;
                 <a href=# tabindex=-1 id=close>&#x2716;</a>
             </div>
             <div class=content>
+                <!--buttons and options in the option tab-->
                 <div class="option contents">
                     <div id=inactive-time></div>
                     <div class=wrapper>
                         <div class=other>
+                            <!--Creating Export as CVS button-->
                             <a href=# tabindex=-1 class="export_as_cvs_button">Export as CSV</a>
+                            <!--Creating Backup button-->
+                            <a href=# tabindex=-1 class="backup_button">Backup</a>
+                            <!--creating restore button where if data format is incorrect will display corrupted data message-->
                             <a href=# tabindex=-1 class="button with-loader options-restore">
                                 <span class=text data-default=Restore data-warning="Corrupted data!" data-restored="Data restored!">Restore</span>
+                                <div class=loading>
+                                        <div class=shifter></div>
+                                    </div>
+                                    <!--user will select data to be restored. Data is in .json format-->
+                                    <input type=file accept=application/json>
+                            </a>
+                            <div class=other>
+                                <!--creating CLear all button and display confirm message-->
+                                <a href=# tabindex=-1 class="clear_all_button">
+                                    <span class=text data-default="Clear data" data-active=Confirm?>Clear data</span>
+                                    <div class=loading>
+                                        <div class=shifter></div>
+                                </a>
+                            </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="stats contents">
+                    <dl>
+                        <dt>Categories:</dt>
+                        <dd class=stats_categories>
+                            <div class=text></div>
+                        </dd>
+                    </dl>
                 </div>
 
             </div>
