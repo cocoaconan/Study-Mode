@@ -62,8 +62,7 @@ updateDomains=function(e){
 						var i=domains[a];i.days[dates.today]=i.days[dates.today]||getDayObj(),e||(i.alltime.seconds+=INTERVAL_UPDATE_S,
 						i.days[dates.today].seconds+=INTERVAL_UPDATE_S,seconds.today+=INTERVAL_UPDATE_S,seconds.alltime+=INTERVAL_UPDATE_S,domainsChanged=!0),
 						setBadge(d,getBadgeTimeString(i.days[dates.today].seconds))}})})};chrome.tabs.onActivated.addListener(function(e){var a,t=e.tabId;
-		return 
-chrome.tabs.get(t,function(e){a=parseDomainFromUrl(e.url),setBadge(t,""),domains[a]&&domains[a].days[dates.today]&&setBadge(t,getBadgeTimeString(domains[a].days[dates.today].seconds))}),!0
+		return chrome.tabs.get(t,function(e){a=parseDomainFromUrl(e.url),setBadge(t,""),domains[a]&&domains[a].days[dates.today]&&setBadge(t,getBadgeTimeString(domains[a].days[dates.today].seconds))}),!0
 	}),
 
 dcl("Study Mode - background.js loaded"),loadDateStart(dates.today),loadSecondsAlltime(),loadIdleTime(),loadGraphGap(),loadBadgeDisplay(),
@@ -77,4 +76,6 @@ timeIntervals.update=window.setInterval(function(){
 		domainsChanged&&(saveDomains(),saveSecondsAlltime(),chrome.storage.local.getBytesInUse(null,function(e){dcl("Total storage used: "+e+" B")}))
 	},
 	INTERVAL_SAVE_MS);
+
+
 
