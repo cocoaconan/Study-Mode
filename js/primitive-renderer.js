@@ -9,20 +9,25 @@ function _toConsumableArray(t){
 }
 
 var htmlRenderInto=function(t,e){
-	return document.getElementById(t).innerHTML=e,!0
+	return document.getElementById(t).innerHTML=e,
+	!0
 },
 elementInsertInto=function(t,e){
 	var r=document.getElementById(t);
-	return r.innerHTML="",r.appendChild(e),!0
+	return r.innerHTML="",r.appendChild(e),
+	!0
 },
 elementInsertIntoElement=function(t,e){
-	return t.innerHTML="",t.appendChild(e),!0
+	return t.innerHTML="",t.appendChild(e),
+	!0
 },
 elementAppendToElement=function(t,e){
-	return t.appendChild(e),!0
+	return t.appendChild(e),
+	!0
 },
 elementInsertAfterElement=function(t,e){
-	return t.parentNode.insertBefore(e,t.nextSibling),!0
+	return t.parentNode.insertBefore(e,t.nextSibling),
+	!0
 },
 tplHtmlTable=function(t){
 	var e,r,n,a,s,i=[];
@@ -110,13 +115,6 @@ tplHtmlTimeObjectFragment=function(t){
 	e.join("")
 },
 
-tplHtmlBadgeDisplayControl=function(t){
-	var e=[];
-	return e.push("<label>"),
-	e.push('<input tabindex="-1" class="checkbox" type="checkbox" '+(t.checked?"checked":"")+" />"),
-	e.push("Display time tracker in icon"),e.push("</label>"),
-	e.join("")
-},
 
 tplElementStatsDomain=function(t,e){
 	var r=e.querySelector("tr.stats");
