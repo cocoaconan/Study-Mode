@@ -94,7 +94,10 @@ getBadgeTimeString=function(e){
 	var t="";
 	return t=60>e?e+"s":59999>e?parseInt(e/60)+"m":parseInt(e/60/60)+" h"
 },
-
+getIdleTimeComputedString=function(e){
+	var t;
+	return t=90>=e?e+" seconds":parseInt(e/60)+" minutes"
+},
 getIdleTimeComputedFromRaw=function(e){
 	var t=IDLE_TIME_TABLE[e];
 	return"undefined"==typeof t&&(t=IDLE_TIME_DEFAULT,console.error("Undefined raw value: "+e)),t

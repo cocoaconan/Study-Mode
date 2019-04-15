@@ -1,7 +1,8 @@
 "use strict";
 var DEVELOPMENT_MODE=!("update_url"in chrome.runtime.getManifest()),
 SKIP_RESTORE_HASH_CHECK=!("update_url"in chrome.runtime.getManifest()),
-
+SCREENSHOT_MODE=!1,SCREENSHOT_MODE_QUERY="?screenshot=on",SCREENSHOT_WAIT=50,
+SCREENSHOT_INSTRUCTIONS_READ_DEFAULT=!1,
 SCROLLBAR_WIDTH="12",
 BADGE_DISPLAY_DEFAULT=!0,
 INTERVAL_UPDATE_S=1,

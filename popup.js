@@ -85,11 +85,6 @@ updateDoughnutInfotext=function(e,t,n){
 				return!0
 },
 
-renderControlBadgeDisplay=function(){
-	var e={checked:backgroundJS.settings.badgeDisplay};
-	html=tplHtmlBadgeDisplayControl(e),htmlRenderInto("badge-display",html)
-},
-
 clearOverallStats=function(){
 	return document.querySelector("#pseudomodal .container.stats .stats-wrapper .text").innerHTML="",
 	document.querySelector("#pseudomodal .container.stats .stats-wrapper .charts").innerHTML="",
@@ -99,7 +94,7 @@ clearOverallStats=function(){
 renderUI=function(){
 	renderUIRange(RANGE_TODAY,RESOLUTION_HOURS,!0,!0,!0),
 	renderUIRange(RANGE_ALLTIME,RESOLUTION_DAYS,!0,!0,!0),
-	renderControlBadgeDisplay(), clearOverallStats(),dcl("UI rendered")
+	clearOverallStats(),dcl("UI rendered")
 },
 
 initialize=function(){
@@ -219,6 +214,7 @@ addMultipleDelegatedEventListeners("#pseudomodal .options-clear-all","click",fun
 		n.innerText=n.dataset["default"],
 		a.classList.remove("running")},INTERVAL_UI_LOADING)),!0
 }),
+		
 
 addMultipleDelegatedEventListeners("#pseudomodal .options-export-csv","click",
 	function(e,t){
