@@ -23,5 +23,5 @@
    "optional_permissions": [ "\u003Call_urls>" ],
    "permissions": [ "tabs", "idle", "storage", "unlimitedStorage" ],
    "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "1.0.33"
+   "version": "1.0.3"
 }
