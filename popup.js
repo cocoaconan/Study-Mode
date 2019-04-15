@@ -227,10 +227,6 @@ addMultipleDelegatedEventListeners("#pseudomodal .options-export-csv","click",
 		return initiateDownload([n],"octet/stream","webtime-tracker-"+backgroundJS.dates.today+".csv"),!0
 }),
 
-addMultipleDelegatedEventListeners("#pseudomodal #badge-display .checkbox","change",
-function(e,t){var n=t.checked;return"change"===e.type&&(backgroundJS.setBadgeDisplay(n),
-	backgroundJS.saveBadgeDisplay(),backgroundJS.updateDomains(!0),dcl("Badge display saved: "+n)),!0
-}),
 
 addMultipleDelegatedEventListeners(".screenshot-capture .capture","click",
 	function(e,t){
