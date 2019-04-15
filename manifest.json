@@ -1,24 +1,27 @@
 {
-    "manifest_version": 2,
-    "name": "Study Mode",
-    "version": "1.0.0",
-    "description": "Online activities",
-    "offline_enable": true,
-    "permissions": ["idle", "storage","unlimitedStorage", "tabs"],
-    "update_url": "https://clients2.google.com/service/update2/crx",
-
-    "browser_action": {
-        "default_title": "Study Mode",
-        "default_popup": "popup.html"
-    },
-
-    "icons":{
-        "16": "icon/16.png",
-        "48": "icon/48.png",
-        "128": "icon/128.png"
-    },
-
-    "background":{
-        
-    }
+   "background": {
+      "scripts": [ "js/config.js", "js/fn.js", "js/storage-local.js", "js/background.js" ]
+   },
+   "browser_action": {
+      "default_icon": {
+         "16": "icon/icon-16.png",
+         "38": "icon/icon-38.png"
+      },
+      "default_popup": "popup.html",
+      "default_title": "Study Mode"
+   },
+   "description": "AUT R&D Project. Tracks and categorizes a student internet usage.",
+   "icons": {
+      "128": "icon/icon-128.png",
+      "16": "icon/icon-16.png",
+      "32": "icon/icon-32.png",
+      "48": "icon/icon-48.png"
+   },
+   "manifest_version": 2,
+   "name": "Study Mode",
+   "offline_enabled": true,
+   "optional_permissions": [ "\u003Call_urls>" ],
+   "permissions": [ "tabs", "idle", "storage", "unlimitedStorage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.4.2"
 }

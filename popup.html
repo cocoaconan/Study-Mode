@@ -1,145 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset=utf-8>
-        <meta name="tracker" content="width=device-width, inital-scake=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Study Mode</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" type="text/css">
-        
-        <style>
-            html, body {
-                font-family: 'Open Sans', sans-serif;
-                font-size: 14px;
-                margin: 0;
-                min-height: 180px;
-                padding: 0;
-                width: 384px;
-            }   
-       
-                h1 {
-                    font-family: 'Menlo', monospace;
-                    font-size: 22px;
-                    font-weight: 400;
-                    margin: 0;
-                    color: #222222;
-                }
-       
-                a:link, a:visited {
-                    color: black;
-                    outline: 0;
-                    text-decoration: none;
-                }
-       
-                img {
-                    width: 30px;
-                }
-       
-                .modal-header {
-                    align-items: center;
-                    border-bottom: 0.5px solid #dadada;
-                }
-                .modal-content {
-                    padding: 0 22px;
-                }
-       
-                .modal icons {
-                    border-top: 0.5px solid #dadada;
-                    height: 50px;
-                    width: 100%;
-                }
-       
-                .logo {
-                    padding: 16px;
-                }
-       
-                .logo-icon {
-                    vertical-align: text-bottom;
-                    margin-right: 12px;
-                }
-       
-                .version {
-                    color: #444;
-                    font-size: 18px;
-                }
-       
-                .flex-container {
-                    display: flex;
-                    justify-content: space-between;
-                    padding: 10px 22px;
-                }
-       
-                .flex {
-                    opacity: 1;
-                    transition: opacity 0.2s ease-in-out;
-                    width: 120px;
-                }
-       
-                .flex:hover {
-                    opacity: 0.4;
-                }
-       
-                .flex.fa {
-                    font-size: 40px;
-                    color: #666666;
-                }
-                </style>
-        
-        <body>
-            <h1>Study Mode
-                <small>Time to Study.</small>
-            </h1>
-            <!--Options and Stats tabs in the main page-->
-            <div class=menu>
-                <a href=# tabindex=-1 id=options>Options</a> &nbsp;
-                <a href=# tabindex=-1 id=stats>Stats</a> &nbsp;
-                <a href=# tabindex=-1 id=close>&#x2716;</a>
-            </div>
-            <div class=content>
-                <!--buttons and options in the option tab-->
-                <div class="option contents">
-                    <div id=inactive-time></div>
-                    <div class=wrapper>
-                        <div class=other>
-                            <!--Creating Export as CVS button-->
-                            <a href=# tabindex=-1 class="export_as_cvs_button">Export as CSV</a>
-                            <!--Creating Backup button-->
-                            <a href=# tabindex=-1 class="backup_button">Backup</a>
-                            <!--creating restore button where if data format is incorrect will display corrupted data message-->
-                            <a href=# tabindex=-1 class="button with-loader options-restore">
-                                <span class=text data-default=Restore data-warning="Corrupted data!" data-restored="Data restored!">Restore</span>
-                                <div class=loading>
-                                        <div class=shifter></div>
-                                    </div>
-                                    <!--user will select data to be restored. Data is in .json format-->
-                                    <input type=file accept=application/json>
-                            </a>
-                            <div class=other>
-                                <!--creating CLear all button and display confirm message-->
-                                <a href=# tabindex=-1 class="clear_all_button">
-                                    <span class=text data-default="Clear data" data-active=Confirm?>Clear data</span>
-                                    <div class=loading>
-                                        <div class=shifter></div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<!doctype html>
+<html lang=en>
+	<head>
+		<meta charset=utf-8>
+		<title>Study Mode</title>
+		<link href=css/popup.css rel=stylesheet>
+	</head>
+	<body>
+		<header>
+			<h1>Study Mde <small>Time to Study!</small></h1>
+			<div id=pseudomodal data-visibility=close>
+				<!--Options and Stats tabs in the main page -->
+				<div class=menu>
+					<a href=# tabindex=-1 id=options>Options</a> &nbsp; 
+					<a href=# tabindex=-1 id=stats>Stats</a> &nbsp;
+					<a href=# tabindex=-1 id=close>&#x2716;</a>
+				</div>
+				<div class=content>
+					<div class="container options">
+						<!--buttons and options in the option tab -->
+						<div class=halves-wrapper>
+							<div class=half>
+								<!--Creating Export as CVS button-->
+								<a href=# tabindex=-1 class="button options-export-csv">Export to CSV</a> 
+							</div>
+						 	<!--creating CLear all button and display confirm message-->
+							<div class=half> 
+								<a href=# tabindex=-1 class="button with-loader options-clear-all"><span class=text data-default="Clear all data" data-active=Really?>Clear all data</span>
+									<div class=loading>
+										<div class=shifter></div>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="container stats">
+						<dl>
+							<dt>Categories: </dt>
+						</dl>
+						<dl>
+							<dt></dt>
+							<dd class=stats-wrapper>
+								<div class=text></div>
+								<div class=charts></div>
+							</dd>
+						</dl>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div id=wrapper data-visibility=today>
+			<!--This class displays the clickable titles that changes the data for 'today' and 'all-time'. -->
+			<nav class=chart-types>
+				<ul>
+					<li class=active>
+						<a href=# tabindex=-1 class=sign-today-link data-visibility=today>Today</a>
+					</li>
+					<li>
+						<a href=# tabindex=-1 class=sign-alltime-link data-visibility=alltime>All-time</a>
+					</li>
+				</ul>
+			</nav>
+		
+			<!--This class displays the first doughnut graph with the total time for either todays data or all time. -->
+			<div class=doughnut-wrapper>
+				<div id=doughnut-today class="doughnut-container sign-today-display"></div>
+				<div id=doughnut-alltime class="doughnut-container sign-alltime-display"></div>
+			</div>
+		
+			<br>
+			<div class="table-container sign-today-display">
+				<table class=datatable id=table-today data-range=today></table>
+			</div>
+			<div class="table-container sign-alltime-display">
+				<table class=datatable id=table-alltime data-range=alltime></table>
+			</div>
+		</div>
 
-                <div class="stats contents">
-                    <dl>
-                        <dt>Categories:</dt>
-                        <dd class=stats_categories>
-                            <div class=text></div>
-                        </dd>
-                    </dl>
-                </div>
-
-            </div>
-            
-        </body>
-        
-
-
-    </head>
+		<script src=js/config.js></script>
+		<script src=js/fn.js></script>
+		<script src=js/primitive-renderer.js></script>
+		<script src=popup.js></script>
+		<script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+		<script type="text/javascript">(function(){
+			emailjs.init("user_Pl0styXluFnsfpGg0oe0s");
+		})();</script>
+	</body>	
 </html>
+
+
+
+
+
+
+
+
+
