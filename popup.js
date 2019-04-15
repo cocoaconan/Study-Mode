@@ -85,6 +85,11 @@ updateDoughnutInfotext=function(e,t,n){
 				return!0
 },
 
+renderControlBadgeDisplay=function(){
+	var e={checked:backgroundJS.settings.badgeDisplay};
+	html=tplHtmlBadgeDisplayControl(e),htmlRenderInto("badge-display",html)
+},
+
 clearOverallStats=function(){
 	return document.querySelector("#pseudomodal .container.stats .stats-wrapper .text").innerHTML="",
 	document.querySelector("#pseudomodal .container.stats .stats-wrapper .charts").innerHTML="",
@@ -94,7 +99,7 @@ clearOverallStats=function(){
 renderUI=function(){
 	renderUIRange(RANGE_TODAY,RESOLUTION_HOURS,!0,!0,!0),
 	renderUIRange(RANGE_ALLTIME,RESOLUTION_DAYS,!0,!0,!0),
-	clearOverallStats(),dcl("UI rendered")
+	renderControlBadgeDisplay(), clearOverallStats(),dcl("UI rendered")
 },
 
 initialize=function(){
@@ -102,6 +107,11 @@ initialize=function(){
 	dcl("Application initialized"),!0
 };
 initialize(),
+
+addMultipleDelegatedEventListeners("#pseudomodal #badge-display .checkbox","change",
+function(e,t){var n=t.checked;return"change"===e.type&&(backgroundJS.setBadgeDisplay(n),
+	backgroundJS.saveBadgeDisplay(),backgroundJS.updateDomains(!0),dcl("Badge display saved: "+n)),!0
+}),
 
 addMultipleDelegatedEventListeners("body","click",function(e,t){
 	if(e.detail>=2)
@@ -130,7 +140,8 @@ addMultipleDelegatedEventListeners(".doughnut .group","click,mouseover,mouseout"
 		}
 		else if(t.classList.remove("active"),u.length>0)
 		for(a=0;a<u.length;a++)u[a].classList.remove("active");
-			"false"===l&&c===!1&&updateDoughnutInfotext(o,r,s)}return!0}),
+			"false"===l&&c===!1&&updateDoughnutInfotext(o,r,s)}return!0
+}),
 
 addMultipleDelegatedEventListeners(".datatable tbody tr","click,mouseover,mouseout",function(e,t){
 	var n,a="",r="",s=t.parentNode.parentNode.dataset.range,o=t.dataset.connectId,i=t.dataset.url;
