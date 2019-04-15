@@ -115,6 +115,13 @@ tplHtmlTimeObjectFragment=function(t){
 	e.join("")
 },
 
+tplHtmlBadgeDisplayControl=function(t){
+	var e=[];
+	return e.push("<label>"),
+	e.push('<input tabindex="-1" class="checkbox" type="checkbox" '+(t.checked?"checked":"")+" />"),
+	e.push("Display time tracker in icon"),e.push("</label>"),
+	e.join("")
+},
 
 tplElementStatsDomain=function(t,e){
 	var r=e.querySelector("tr.stats");
