@@ -94,6 +94,22 @@ getBadgeTimeString=function(e){
 	var t="";
 	return t=60>e?e+"s":59999>e?parseInt(e/60)+"m":parseInt(e/60/60)+" h"
 },
+getIdleTimeComputedString=function(e){
+	var t;
+	return t=90>=e?e+" seconds":parseInt(e/60)+" minutes"
+},
+getIdleTimeComputedFromRaw=function(e){
+	var t=IDLE_TIME_TABLE[e];
+	return"undefined"==typeof t&&(t=IDLE_TIME_DEFAULT,console.error("Undefined raw value: "+e)),t
+},
+getIdleTimeRawFromComputed=function(e){
+	var t=IDLE_TIME_TABLE.indexOf(e);
+	if(-1===t){
+		var t=IDLE_TIME_TABLE.indexOf(IDLE_TIME_DEFAULT);
+		console.error("Computed value with no match: "+e)
+	}
+	return t
+},
 getSliderComputedFromRaw=function(e,t,n){
 	var r=e[n];
 	return"undefined"==typeof r&&(r=t,console.error("Undefined raw value: "+n)),r
