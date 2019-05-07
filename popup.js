@@ -93,7 +93,6 @@ var backgroundJS = chrome.extension.getBackgroundPage(),
 			n = 0; n < e.length; n++) ranks[t].domains[e[n].name] = n + 1;
 		return !0
 	},
-
 	renderControlBadgeDisplay = function () {
 		var e = {
 			checked: backgroundJS.settings.badgeDisplay
