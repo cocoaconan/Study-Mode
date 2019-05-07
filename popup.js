@@ -118,8 +118,7 @@ addMultipleDelegatedEventListeners("body","click",function(e,t){
 		if(document.selection&&document.selection.empty)document.selection.empty();
 	else if(window.getSelection){
 		var n=window.getSelection();
-		n.removeAllRanges()}return!0
-}),
+		n.removeAllRanges()}return!0}),
 
 addMultipleDelegatedEventListeners(".doughnut .group","click,mouseover,mouseout",function(e,t){
 	var n,a,r="",s="",o=t.parentNode.getAttribute("wt:range"),
@@ -226,12 +225,35 @@ addMultipleDelegatedEventListeners("#pseudomodal .options-clear-all","click",fun
 		n.innerText=n.dataset["default"],
 		a.classList.remove("running")},INTERVAL_UI_LOADING)),!0
 }),
+		
 
 addMultipleDelegatedEventListeners("#pseudomodal .options-export-csv","click",
 	function(e,t){
 		e.preventDefault();
 		var n=convertArrayToCsv(backgroundJS.domains,backgroundJS.dates.start,backgroundJS.dates.today);
 		return initiateDownload([n],"octet/stream","webtime-tracker-"+backgroundJS.dates.today+".csv"),!0
+}),
+
+
+addMultipleDelegatedEventListeners(".screenshot-capture .capture","click",
+	function(e,t){
+		return e.preventDefault(),
+		console.log("Screenshot - start"),
+		screenshotUICaptureHide(),
+		setTimeout(function(){
+			chrome.tabs.captureVisibleTab(null,{
+				format:"png"
+			},
+			function(e){
+				if(chrome.runtime.lastError&&chrome.runtime.lastError.message)dcl("Screenshot - error: "+chrome.runtime.lastError.message);
+				else{
+					for(var t=e.split(",")[0].split(":")[1].split(";")[0],
+						n=window.atob(e.split(",")[1]),
+						a=new Uint8Array(n.length),
+						r=0;r<n.length;r++)a[r]=n.charCodeAt(r);
+						var s=(new Date).toISOString().replace(/[T:]/g,"-").split(".")[0],
+					o="webtime-tracker-screenshot-"+s+".png";
+					initiateDownload([a],t,o),screenshotUICaptureShow()}})},SCREENSHOT_WAIT),!0
 });
 
 
