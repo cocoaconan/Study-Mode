@@ -527,6 +527,7 @@ svg.chart-stats.days .group:hover .rect.active {
     }
 }
 
+/*pauseButton*/
 .switch {
 position: relative;
 display: inline-block;

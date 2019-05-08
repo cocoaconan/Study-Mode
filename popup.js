@@ -9,6 +9,14 @@ function _defineProperty(e, t, n) {
 	}) : e[t] = n, e
 }
 
+var isExtensionOn = false;
+chrome.extension.sendMessage({ cmd: "setOnOffState", data: { value: isExtensionOn } });
+
+//GET VARIABLE
+chrome.extension.sendMessage({ cmd: "isAutoFeedMode" }, function (response) {
+if (response == true) {
+ //Run the rest of your content-script in here..
+
 var backgroundJS = chrome.extension.getBackgroundPage(),
 	ranks = {},
 	data, html,
@@ -300,4 +308,9 @@ initialize(),
 							}
 						})
 				}, SCREENSHOT_WAIT), !0
-		});
+				
+		}
+	);
+
+}
+});
