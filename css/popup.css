@@ -190,6 +190,7 @@ h2 {
     color: grey
 }
 
+#wrapper .chart-cats,
 #wrapper .chart-types,
 #wrapper .datatable,
 #wrapper .datatable thead {
@@ -198,11 +199,21 @@ h2 {
 
 #wrapper[data-visibility=alltime] .sign-alltime-link,
 #wrapper[data-visibility=today] .sign-today-link {
-    color: #404040
+    color: #404040 /* The colour of the text when cursor isnt hovering over */
 }
 
 #wrapper[data-visibility=alltime] .sign-alltime-display,
 #wrapper[data-visibility=today] .sign-today-display {
+    display: block
+}
+
+#wrapper[data-visibility=all-category] .link-all-category,
+#wrapper[data-visibility=study-mode] .link-study-mode {
+    color: #404040
+}
+
+#wrapper[data-visibility=all-category] .link-all-category,
+#wrapper[data-visibility=study-mode] .link-study-mode {
     display: block
 }
 
@@ -228,6 +239,31 @@ h2 {
 
 #wrapper .chart-types ul li a.active,
 #wrapper .chart-types ul li a:hover {
+    color: #404040
+}
+
+/*Chart-cats is the Study mode and all time categories section of the categories tab */
+#pseudomodal .chart-cats ul {
+    margin: 5;
+    padding: 0;
+    text-align: center
+}
+
+/*Adjustments for the study mode and all time categories */
+#pseudomodal .chart-cats ul li {
+    display: inline;
+    padding: 0 1em
+}
+
+#pseudomodal .chart-cats ul li a {
+    font-size: 1em;
+    color: grey;
+    font-weight: 700;
+    text-decoration: none
+}
+
+#pseudomodal .chart-cats ul li a.active,
+#pseudomodal .chart-cats ul li a:hover {
     color: #404040
 }
 
