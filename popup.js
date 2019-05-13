@@ -109,8 +109,7 @@ initialize=function(){
 initialize(),
 
 addMultipleDelegatedEventListeners("#pseudomodal #badge-display .checkbox","change",
-function(e,t){var n=t.checked;
-	return"change"===e.type&&(backgroundJS.setBadgeDisplay(n),
+function(e,t){var n=t.checked;return"change"===e.type&&(backgroundJS.setBadgeDisplay(n),
 	backgroundJS.saveBadgeDisplay(),backgroundJS.updateDomains(!0),dcl("Badge display saved: "+n)),!0
 }),
 
@@ -119,10 +118,7 @@ addMultipleDelegatedEventListeners("body","click",function(e,t){
 		if(document.selection&&document.selection.empty)document.selection.empty();
 	else if(window.getSelection){
 		var n=window.getSelection();
-		n.removeAllRanges()
-	}
-	return!0
-}),
+		n.removeAllRanges()}return!0}),
 
 addMultipleDelegatedEventListeners(".doughnut .group","click,mouseover,mouseout",function(e,t){
 	var n,a,r="",s="",o=t.parentNode.getAttribute("wt:range"),
@@ -144,9 +140,7 @@ addMultipleDelegatedEventListeners(".doughnut .group","click,mouseover,mouseout"
 		}
 		else if(t.classList.remove("active"),u.length>0)
 		for(a=0;a<u.length;a++)u[a].classList.remove("active");
-			"false"===l&&c===!1&&updateDoughnutInfotext(o,r,s)
-		}
-		return!0
+			"false"===l&&c===!1&&updateDoughnutInfotext(o,r,s)}return!0
 }),
 
 addMultipleDelegatedEventListeners(".datatable tbody tr","click,mouseover,mouseout",function(e,t){
@@ -181,8 +175,7 @@ addMultipleDelegatedEventListeners(".chart-daynames .chart .daynames g.group","m
 	var n=t.closest(".chart-daynames").querySelector(".info .percentage"),
 	a=t.closest(".chart-daynames").querySelector(".info .time"),
 	r=t.getAttribute("wt:percentage-string"),
-	s=t.getAttribute("wt:time");
-	return"mouseover"===e.type?(a.innerHTML=tplHtmlTimeObjectFragment({value:s,resolution:RESOLUTION_DAYS}),
+	s=t.getAttribute("wt:time");return"mouseover"===e.type?(a.innerHTML=tplHtmlTimeObjectFragment({value:s,resolution:RESOLUTION_DAYS}),
 		n.innerHTML=r):"mouseout"===e.type&&(a.innerHTML="&nbsp;",n.innerHTML="&nbsp;"),!0
 }),
 
@@ -238,7 +231,29 @@ addMultipleDelegatedEventListeners("#pseudomodal .options-export-csv","click",
 	function(e,t){
 		e.preventDefault();
 		var n=convertArrayToCsv(backgroundJS.domains,backgroundJS.dates.start,backgroundJS.dates.today);
-		return initiateDownload([n],"octet/stream","Study-Mode-"+backgroundJS.dates.today+".csv"),!0
+		return initiateDownload([n],"octet/stream","webtime-tracker-"+backgroundJS.dates.today+".csv"),!0
+}),
+
+
+addMultipleDelegatedEventListeners(".screenshot-capture .capture","click",
+	function(e,t){
+		return e.preventDefault(),
+		console.log("Screenshot - start"),
+		screenshotUICaptureHide(),
+		setTimeout(function(){
+			chrome.tabs.captureVisibleTab(null,{
+				format:"png"
+			},
+			function(e){
+				if(chrome.runtime.lastError&&chrome.runtime.lastError.message)dcl("Screenshot - error: "+chrome.runtime.lastError.message);
+				else{
+					for(var t=e.split(",")[0].split(":")[1].split(";")[0],
+						n=window.atob(e.split(",")[1]),
+						a=new Uint8Array(n.length),
+						r=0;r<n.length;r++)a[r]=n.charCodeAt(r);
+						var s=(new Date).toISOString().replace(/[T:]/g,"-").split(".")[0],
+					o="webtime-tracker-screenshot-"+s+".png";
+					initiateDownload([a],t,o),screenshotUICaptureShow()}})},SCREENSHOT_WAIT),!0
 });
 
 
