@@ -94,14 +94,6 @@ getBadgeTimeString=function(e){
 	var t="";
 	return t=60>e?e+"s":59999>e?parseInt(e/60)+"m":parseInt(e/60/60)+" h"
 },
-getSliderComputedFromRaw=function(e,t,n){
-	var r=e[n];
-	return"undefined"==typeof r&&(r=t,console.error("Undefined raw value: "+n)),r
-},
-getSliderRawFromComputed=function(e,t,n){
-	var r=e.indexOf(n);
-	return-1===r&&(r=e.indexOf(t),console.error("Computed value with no match: "+n)),r
-},
 getDatesSparse=function(e,t){
 	var n,r=[],o=new Date(e);
 	for(r.push(e),n=0;t>n;n++)o.setDate(o.getDate()+1),r.push(getDateString(o));
