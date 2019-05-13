@@ -4,17 +4,15 @@
 		<meta charset=utf-8>
 		<title>Study Mode</title>
 		<link href=css/popup.css rel=stylesheet>
-
 	</head>
 	<body>
 		<header>
 			<h1>Study Mode <small>Time to Study!</small></h1>
-
 			<div id=pseudomodal data-visibility=close>
 				<!--Options and Stats tabs in the main page -->
 				<div class=menu>
 					<a href=# tabindex=-1 id=options>Options</a> &nbsp; 
-					<a href=# tabindex=-1 id=stats>Stats</a> &nbsp;
+					<a href=# tabindex=-1 id=stats>Categories</a> &nbsp;
 					<a href=# tabindex=-1 id=close>&#x2716;</a>
 				</div>
 				<div class=content>
@@ -39,23 +37,30 @@
 					<div class="container stats">
 						<dl>
 							<dt>Categories: </dt>
+							<div id="data">
+								
+								<div id="chart_div"></div>
+								<div id="table_div"></div>
+							</div>
 						</dl>
 						<dl>
 							<dt></dt>
 							<dd class=stats-wrapper>
 								<div class=text></div>
 								<div class=charts></div>
+
+								<div id="data">
+									<span id="nodata">Start browsing to collect usage data.</span>
+									<div id="chart_div"></div>
+									<div id="table_div"></div>
+									<table class=datatable1 id=table-cat></table>
+								  </div>
 							</dd>
 						</dl>
 					</div>
 				</div>
 			</div>
 		</header>
-		<label class="switch">
-			<input type="checkbox">
-			<span class="slider"></span>
-		  </label>
-		  
 		<div id=wrapper data-visibility=today>
 			<!--This class displays the clickable titles that changes the data for 'today' and 'all-time'. -->
 			<nav class=chart-types>
@@ -84,22 +89,17 @@
 			</div>
 		</div>
 
-		<script>
-
-			</script>
-		
-		
-
-
 		<script src=js/config.js></script>
 		<script src=js/fn.js></script>
 		<script src=js/primitive-renderer.js></script>
+		<script src=js/category-renderer.js></script>
 		<script src=popup.js></script>
-		<script src=js/background.js></script>
 		<script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
 		<script type="text/javascript">(function(){
 			emailjs.init("user_Pl0styXluFnsfpGg0oe0s");
 		})();</script>
+		<!-- Load the AJAX API -->
+		<script src="https://www.google.com/jsapi"></script>
 	</body>	
 </html>
 

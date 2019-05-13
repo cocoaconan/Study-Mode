@@ -1,6 +1,6 @@
 {
    "background": {
-      "scripts": ["js/config.js", "js/fn.js", "js/storage-local.js", "js/background.js"]
+      "scripts": [ "js/config.js", "js/fn.js", "js/storage-local.js", "js/background.js" ]
    },
    "browser_action": {
       "default_icon": {
@@ -20,8 +20,8 @@
    "manifest_version": 2,
    "name": "Study Mode",
    "offline_enabled": true,
-   "optional_permissions": ["\u003Call_urls>"],
-   "permissions": ["tabs", "idle", "storage", "unlimitedStorage"],
+   "optional_permissions": [ "\u003Call_urls>" ],
+   "permissions": [ "tabs", "idle", "storage", "unlimitedStorage" ],
    "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "1.0.2"
+   "version": "1.0.5"
 }
