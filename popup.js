@@ -227,12 +227,12 @@ addMultipleDelegatedEventListeners("#pseudomodal .options-clear-all","click",fun
 }),
 		
 
-// addMultipleDelegatedEventListeners("#pseudomodal .options-export-csv","click",
-// 	function(e,t){
-// 		e.preventDefault();
-// 		var n=convertArrayToCsv(backgroundJS.domains,backgroundJS.dates.start,backgroundJS.dates.today);
-// 		return initiateDownload([n],"octet/stream","webtime-tracker-"+backgroundJS.dates.today+".csv"),!0
-// }),
+addMultipleDelegatedEventListeners("#pseudomodal .options-export-csv","click",
+	function(e,t){
+		e.preventDefault();
+		var n=convertArrayToCsv(backgroundJS.domains,backgroundJS.dates.start,backgroundJS.dates.today);
+		return initiateDownload([n],"octet/stream","webtime-tracker-"+backgroundJS.dates.today+".csv"),!0
+}),
 
 
 addMultipleDelegatedEventListeners(".screenshot-capture .capture","click",
