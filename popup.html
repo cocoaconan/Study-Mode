@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang=en>
+	<head>
+		<meta charset=utf-8>
+		<title>Study Mode</title>
+		<link href=css/popup.css rel=stylesheet>
+	</head>
+	<body>
+		<header>
+			<h1>Study Mode <small>Time to Study!</small></h1>
+			<div id=pseudomodal data-visibility=close>
+				<!--Options and Stats tabs in the main page -->
+				<div class=menu>
+					<a href=# tabindex=-1 id=options>Options</a> &nbsp; 
+					<a href=# tabindex=-1 id=stats>Stats</a> &nbsp;
+					<a href=# tabindex=-1 id=close>&#x2716;</a>
+				</div>
+				<div class=content>
+					<div class="container options">
+						<div id=badge-display></div>
+						<!--buttons and options in the option tab -->
+						<div class=halves-wrapper>
+							<div class=half>
+								<!--Creating Export as CVS button-->
+								<a href=# tabindex=-1 class="button options-export-csv">Export to CSV</a> 
+							</div>
+						 	<!--creating CLear all button and display confirm message-->
+							<div class=half> 
+								<a href=# tabindex=-1 class="button with-loader options-clear-all"><span class=text data-default="Clear all data" data-active=Really?>Clear all data</span>
+									<div class=loading>
+										<div class=shifter></div>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="container stats">
+						<dl>
+							<dt>Categories: </dt>
+						</dl>
+						<dl>
+							<dt></dt>
+							<dd class=stats-wrapper>
+								<div class=text></div>
+								<div class=charts></div>
+							</dd>
+						</dl>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div id=wrapper data-visibility=today>
+			<!--This class displays the clickable titles that changes the data for 'today' and 'all-time'. -->
+			<nav class=chart-types>
+				<ul>
+					<li class=active>
+						<a href=# tabindex=-1 class=sign-today-link data-visibility=today>Today</a>
+					</li>
+					<li>
+						<a href=# tabindex=-1 class=sign-alltime-link data-visibility=alltime>All-time</a>
+					</li>
+				</ul>
+			</nav>
+		
+			<!--This class displays the first doughnut graph with the total time for either todays data or all time. -->
+			<div class=doughnut-wrapper>
+				<div id=doughnut-today class="doughnut-container sign-today-display"></div>
+				<div id=doughnut-alltime class="doughnut-container sign-alltime-display"></div>
+			</div>
+		
+			<br>
+			<div class="table-container sign-today-display">
+				<table class=datatable id=table-today data-range=today></table>
+			</div>
+			<div class="table-container sign-alltime-display">
+				<table class=datatable id=table-alltime data-range=alltime></table>
+			</div>
+		</div>
+
+		<script src=js/config.js></script>
+		<script src=js/fn.js></script>
+		<script src=js/primitive-renderer.js></script>
+		<script src=popup.js></script>
+		<script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+		<script type="text/javascript">(function(){
+			emailjs.init("user_Pl0styXluFnsfpGg0oe0s");
+		})();</script>
+	</body>	
+</html>
+
+
+
+
+
+
+
+
+
