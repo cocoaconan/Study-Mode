@@ -4,63 +4,7 @@
 		<meta charset=utf-8>
 		<title>Study Mode</title>
 		<link href=css/popup.css rel=stylesheet>
-	<style>
-	
-	.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-  float: right;
-}
-
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: #2196F3;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-	
-	</style>
+		
 	</head>
 	<body>
 		<header>
@@ -69,7 +13,7 @@ input:checked + .slider:before {
 				<!--Options and Stats tabs in the main page -->
 				<div class=menu>
 					<a href=# tabindex=-1 id=options>Options</a> &nbsp; 
-					<a href=# tabindex=-1 id=stats>Categories</a> &nbsp;
+					<a href=# tabindex=-1 id=stats>Stats</a> &nbsp;
 					<a href=# tabindex=-1 id=close>&#x2716;</a>
 				</div>
 				<div class=content>
@@ -93,17 +37,7 @@ input:checked + .slider:before {
 					</div>
 					<div class="container stats">
 						<dl>
-							
-							<nav class=chart-cats>
-								<ul>
-									<li class=active>
-										<a href=# tabindex=-1 class=link-all-category data-visibility=all-category>All Categories</a>
-									</li>
-									<li>
-										<a href=# tabindex=-1 class=link-study-mode data-visibility=study-mode>Study Mode</a>
-									</li>
-								</ul>
-							</nav>
+							<dt>Categories: </dt>
 						</dl>
 						<dl>
 							<dt></dt>
@@ -117,17 +51,12 @@ input:checked + .slider:before {
 			</div>
 		</header>
 		
-		<script>
+		<div class="toggleWrapper">
+				<input type="checkbox" id="dn" class="dn">
+				<label for="dn" class="toggle"><span class="toggle__handler"></span></label>
+			</div>
 		
-		
-		
-		
-		</script>
-		<label class="switch">
-			<input type="checkbox">
-			<span class="slider"></span>
-		  </label>
-		  
+
 		<div id=wrapper data-visibility=today>
 			<!--This class displays the clickable titles that changes the data for 'today' and 'all-time'. -->
 			<nav class=chart-types>
@@ -167,6 +96,11 @@ input:checked + .slider:before {
 		<script type="text/javascript">(function(){
 			emailjs.init("user_Pl0styXluFnsfpGg0oe0s");
 		})();</script>
+
+
+  
+  
+  
 	</body>	
 </html>
 
