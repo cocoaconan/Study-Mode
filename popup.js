@@ -76,14 +76,15 @@ updateDoughnutInfotext=function(e,t,n){
 		renderUIRangeDoughnut=function(e,t){
 			var n=tplElementDoughnut(e,backgroundJS.settings.graphGap);
 			elementInsertInto("doughnut-"+t,n)
-		},countRanks=function(e,t){var n;
+		},
+		countRanks=function(e,t){var n;
 			for(ranks[t]={
 				total:e.length,domains:{}
 			},
 			n=0;
 			n<e.length;n++)ranks[t].domains[e[n].name]=n+1;
 				return!0
-},
+		},
 
 renderControlBadgeDisplay=function(){
 	var e={checked:backgroundJS.settings.badgeDisplay};

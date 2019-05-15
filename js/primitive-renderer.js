@@ -35,7 +35,7 @@ tplHtmlTable=function(t){
 		i.push("<tr>"),
 		i.push('<td colspan="4">'),
 		t.range===RANGE_TODAY?
-		i.push("Today data "):
+		i.push("Today's data "):
 		t.range===RANGE_AVERAGE?
 		i.push("Daily averages since "+t.dateStart+" ("+t.daysSinceStart+" day"+(t.daysSinceStart>1?"s":"")+")"):t.range===RANGE_ALLTIME&&
 		i.push("Aggregate data since "+t.dateStart+" ("+t.daysSinceStart+" day"+(t.daysSinceStart>1?"s":"")+")"),

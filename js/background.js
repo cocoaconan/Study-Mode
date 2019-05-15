@@ -23,7 +23,6 @@ var domains = {},
     STORAGE_DATE_START = "date-start",
     STORAGE_SECONDS_ALLTIME = "seconds-alltime",
     STORAGE_IDLE_TIME = "idle-time",
-    STORAGE_GRAPH_GAP = "graph-gap",
     STORAGE_BADGE_DISPLAY = "badge-display",
     STORAGE_SCREENSHOT_INSTRUCTIONS_READ = "storage-instructions-read",
     loadDomains = function(e) {
@@ -72,16 +71,6 @@ var domains = {},
     setIdleTime = function(e) {
         return settings.idleTime = parseInt(e) || IDLE_TIME_DEFAULT, !0
     },
-
-    saveGraphGap = function() {
-        return storageLocal.save(STORAGE_GRAPH_GAP, settings.graphGap, function() {
-            dcl("Graph gap saved: " + settings.graphGap)
-        }), !0
-    },
-    setGraphGap = function(e) {
-        var a = parseFloat(e);
-        return settings.graphGap = isFinite(a) ? a : GRAPH_GAP_DEFAULT, !0
-    },
     loadBadgeDisplay = function() {
         return storageLocal.load(STORAGE_BADGE_DISPLAY, BADGE_DISPLAY_DEFAULT, function(e) {
             settings.badgeDisplay = e[STORAGE_BADGE_DISPLAY], saveBadgeDisplay(), dcl("Badge display loaded: " + e[STORAGE_BADGE_DISPLAY])
@@ -95,17 +84,6 @@ var domains = {},
     setBadgeDisplay = function(e) {
         return settings.badgeDisplay = "boolean" == typeof e ? e : BADGE_DISPLAY_DEFAULT, !0
     },
-    loadScreenshotInstructionsRead = function() {
-        return storageLocal.load(STORAGE_SCREENSHOT_INSTRUCTIONS_READ, SCREENSHOT_INSTRUCTIONS_READ_DEFAULT, function(e) {
-            settings.screenshotInstructionsRead = e[STORAGE_SCREENSHOT_INSTRUCTIONS_READ], saveScreenshotInstructionsRead(), dcl("Storage instructions set loaded: " + e[STORAGE_SCREENSHOT_INSTRUCTIONS_READ])
-        }), !0
-    },
-    saveScreenshotInstructionsRead = function() {
-        return storageLocal.save(STORAGE_SCREENSHOT_INSTRUCTIONS_READ, settings.screenshotInstructionsRead, function() {
-            dcl("Storage instructions set saved: " + settings.screenshotInstructionsRead)
-        }), !0
-    },
-
     setBadge = function(e, a) {
         return settings.badgeDisplay || (a = ""), chrome.browserAction.setBadgeText({
             tabId: e,
@@ -137,7 +115,7 @@ chrome.tabs.onActivated.addListener(function(e) {
     return chrome.tabs.get(t, function(e) {
         a = parseDomainFromUrl(e.url), setBadge(t, ""), domains[a] && domains[a].days[dates.today] && setBadge(t, getBadgeTimeString(domains[a].days[dates.today].seconds))
     }), !0
-}), dcl("Webtime Tracker - background.js loaded"), loadDateStart(dates.today), loadSecondsAlltime(), loadIdleTime(), loadBadgeDisplay(), loadScreenshotInstructionsRead(), loadDomains(function(e) {
+}), dcl("Study Mode - background.js loaded"), loadDateStart(dates.today), loadSecondsAlltime(), loadIdleTime(), loadBadgeDisplay(), loadDomains(function(e) {
     return domains = e[STORAGE_DOMAINS] || [], seconds.today = getTotalSecondsForDate(domains, getDateString()), !0
 }), timeIntervals.update = window.setInterval(function() {
     updateDomains()
